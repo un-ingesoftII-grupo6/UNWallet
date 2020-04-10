@@ -10,17 +10,19 @@
     <h1>
         <%= title %>
     </h1>
-    <div class="container" heigh="200px">
-        <form>
+    <div class="container-sm">
+        <form method="post">
             <div class="form-group">
                 <label for="inputEmail">Email address</label>
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                <input name="email" id="inputEmail" type="email" class="form-control" placeholder="Email" required>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <label for="inputPassword">Password</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" required>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </div>
         </form>
     </div>
 </body>
