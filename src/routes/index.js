@@ -40,8 +40,8 @@ router.post('/login', (req, res) => {
 
 router.post('/signup', (req, res) => {
     // Acá va la validación con la base de datos 
-    if(req.body.password != req.body.confirmPassword) {
-        res.send(400).send("Las contraseñas no coinciden");
+    if(req.body.password != req.body.confirmPassword  || req.body.email != req.body.confirmEmail) {
+        res.send(400).send("Las contraseñas y los emails deben ser iguales");
     } else {
         let wallet = { // Se debe agregar la wallet a la base de datos
             balance : 0.0,
