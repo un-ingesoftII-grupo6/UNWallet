@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const uuid = require('uuid');
+
 var users = [];
 
 router.get('/', (req, res) => {
@@ -44,6 +46,7 @@ router.post('/signup', (req, res) => {
         res.send(400).send("Las contraseñas y los emails deben ser iguales");
     } else {
         let wallet = { // Se debe agregar la wallet a la base de datos
+            id_wallet : uuid.v4(),
             balance : 0.0,
             state : true
         };
