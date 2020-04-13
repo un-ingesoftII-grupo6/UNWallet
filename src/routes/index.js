@@ -45,30 +45,22 @@ router.post('/signup', (req, res) => {
     if(req.body.password != req.body.confirmPassword  || req.body.email != req.body.confirmEmail) {
         res.send(400).send("Las contraseñas y los emails deben ser iguales");
     } else {
-        let Wallet_type = {
-            wtyp_name : 'Personal',
-            wtyp_description : '',
-            wtyp_movement_limit : 4000000.0,
-            wtyp_month_limit : 20000000.0
+        let wallet = { // Se debe agregar la wallet a la base de datos
+            id_wallet : uuid.v4(),
+            balance : 0.0,
+            state : true
         };
 
-        let Wallet = { // Se debe agregar la wallet a la base de datos
-            wal_id : uuid.v4(),
-            wal_balance : 0.0,
-            wal_state : true,
-            wal_type : Wallet_type
+        let user = { // El usuario debe ser guardado en la base de datos si todo está correcto
+            name : req.body.name,
+            lastName : req.body.lastName,
+            email : req.body.email,
+            password : req.body.password,
+            wallet_user : wallet
         };
 
-        let User = { // El usuario debe ser guardado en la base de datos si todo está correcto
-            usr_name : req.body.name,
-            usr_lastName : req.body.lastName,
-            usr_email : req.body.email,
-            usr_password : req.body.password,
-            usr_wallet : Wallet
-        };
-
-        users.push(User);
-        res.render('wallet.html', User);
+        users.push(user);
+        res.render('wallet.html', user);
     }
 });
 
