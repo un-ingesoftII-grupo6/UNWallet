@@ -15,7 +15,7 @@
             <h2 class="text-primary">
                 <a href="/"><i class="fas fa-wallet"></i> UN Wallet</a>
                 <span class="float-right">
-                    <i class="fas fa-user"></i> <%= name + ' ' + lastName %>
+                    <i class="fas fa-user"></i> <%= usr_name + ' ' + usr_lastName %>
                 </span>
             </h2>
         </div>
@@ -34,13 +34,13 @@
                 <div class="card animated pulse">
                     <div class="card border-primary">
                         <div class="card-header text-primary" id="walletID" data-clipboard-action="copy" data-clipboard-target="#walletID">
-                            <%= wallet_user.id_wallet %>
+                            <%= usr_wallet.wal_id %>
                             <span class="float-right">
                                 <button type="button" class="btn btn-primary btn-sm" data-clipboard-action="copy" data-clipboard-target="#walletID">Copy</button>
                             </span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Total balance $<%= wallet_user.balance %></h5>
+                            <h5 class="card-title">Total balance $<%= usr_wallet.wal_balance %></h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
                         </div>
